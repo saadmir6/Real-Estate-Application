@@ -1,0 +1,9 @@
+Django == 4.1.7
+React js == 19.0
+Semantic ui == 2.1.4
+Python-decouple
+Axios
+djangorestframework-simplejwt==5.2.2
+django-cors-headers
+djangorestframework
+
