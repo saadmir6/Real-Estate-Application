@@ -8,7 +8,7 @@ import Rent from "./property_options/Rent";
 import Buy from "./property_options/Buy";
 import SignUp from "./user_account/SignUp";
 import LogIn from "./user_account/LogIn";
-import { BrowserRouter,Routes,Route} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./index.css"
 import { useState } from "react";
 
@@ -32,12 +32,9 @@ function App() {
   
   return (
 
-
     <div className="App">
-       
         <Options />
         <Header/>
-      <BrowserRouter>
         <Routes>
           <Route  path="/" element={<Home />}/>
           <Route path="/signup" element={<SignUp />}/>
@@ -47,7 +44,6 @@ function App() {
           <Route path="/rent" element={<Rent />}/>
           <Route path="/buy" element={<Buy />}/>
         </Routes>
-      </BrowserRouter>
         < Footer />
     </div>
   );

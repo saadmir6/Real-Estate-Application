@@ -1,22 +1,19 @@
-import Sell from "./property_options/Sell";
-import { useContext, useState} from "react";
+// import Sell from "./property_options/Sell";
+// import { useContext, useState} from "react";
 
 
 
-const States = () => {
+// const States = () => {
 
     
-    return ( 
-        <div>
+//     return ( 
+//         <div>
             
-            <Sell image={image}
-                onImagechange={onImagechange} />
+//             <Sell image={image}
+//                 onImagechange={onImagechange} />
+//         </div>
         
-
-            
-        </div>
-        
-     );
-}
+//      );
+// }
  
-export default States;
+// export default States;

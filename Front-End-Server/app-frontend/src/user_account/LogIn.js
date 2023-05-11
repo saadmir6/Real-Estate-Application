@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Form, Button, Segment, Icon, Message } from "semantic-ui-react";
 
 const LogIn = () => {
@@ -22,7 +23,7 @@ const LogIn = () => {
             <br />
             <Message attached='bottom' warning>
                 <Icon name='help' />
-                If you dont have an account.&nbsp;<a href='/signup'>Sign Up here.</a>&nbsp;
+                If you dont have an account.&nbsp;<Link to='/signup'>Sign Up here.</Link>&nbsp;
             </Message>
            
         </div>

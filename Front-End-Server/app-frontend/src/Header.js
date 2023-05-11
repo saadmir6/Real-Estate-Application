@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import {Icon} from "semantic-ui-react";
 
 const Header = () => {
     return ( 
         <header className="H1">
-            <a href="/" style={{color:'inherit'}}>
+            <Link to="/" style={{color:'inherit'}}>
              <Icon  name="home"/>
              Real Estate Athens 
-             </a>
+             </Link>
         </header>
         
      );

@@ -17,6 +17,13 @@ import { useContext, useState } from "react";
 
 const Sell = ( {image, onImagechange} ) => {
 
+    const [value, setValue] = useState('')
+    const handleValue = e => {
+        const result = e.target.value.replace(/\D/g, '')
+        setValue(result)
+        console.log(value)
+    }
+
     
     return ( 
         <div className="sell_form">
@@ -29,7 +36,7 @@ const Sell = ( {image, onImagechange} ) => {
                     <FormGroup widths={4}>
                         <FormInput type="text" label="Street name"/>
                         <FormInput type="number" min="0" label="House number"/>
-                        <FormInput type="number" min="0" label="Postal code"/>
+                        <FormInput type="text" min="0" value={value} onChange={handleValue} maxLength={6} label="Postal Code"/>
                         <FormInput type="text" label="Locality"/>
                     </FormGroup>
                     <br />
@@ -78,8 +85,8 @@ const Sell = ( {image, onImagechange} ) => {
                         <FormInput type="number" min="0"  label="Garage sq. ft."/>
                     </FormGroup>
                     <FormGroup widths={2}>
-                        <Form.Input type="number" min="0" label="Finished sq. ft."  />
-                        <Form.Input type="number" min="0" label="Lot size" placeholder="Lot size is the lawn area plus finished sq. ft."  />
+                        <Form.Input type="number" min="0" label="Total House sq. ft."  />
+                        <Form.Input type="number" min="0" label="Lot size" placeholder="Lot size is the lawn area plus total sq. ft."  />
                     </FormGroup>
                     <FormInput type="month" label="Year built" width={5} >
                     </FormInput>

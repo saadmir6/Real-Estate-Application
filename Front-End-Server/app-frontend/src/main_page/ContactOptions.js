@@ -6,7 +6,7 @@ import contact from '../images/contact.jpg';
 const ContactOpts = () => {
     return ( 
         <div className="Segment_block">
-            {/* ADD HEADING  */}
+           
             <Segment   textAlign="center" >
                     <Grid >
                     <Grid.Column>

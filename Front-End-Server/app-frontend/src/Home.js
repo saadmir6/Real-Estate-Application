@@ -7,8 +7,8 @@ const Home = () => {
         <div className="home">
             <Navbar />
             <hr />
-            <h2 style={{"font-family":"inherit", margin:"30px 50px"}}>Properties in Athens</h2>
-                <ul style={{'list-style-type':"none"}}>
+            <h2 style={{"ntFamily":"inherit", margin:"30px 50px"}}>Properties in Athens</h2>
+                <ul style={{'stStyleType?':"none"}}>
                     <li >
                         <Properties />
                     </li>

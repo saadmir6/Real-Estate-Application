@@ -8,7 +8,7 @@ const Properties = () => {
           <Item.Image src={FirstImg} size="big"/>
     
           <Item.Content>
-            <Item.Header as='a'>12 Years a Slave</Item.Header>
+            <Item.Header as='a'>blahblah</Item.Header>
             <Item.Meta>
               <span className='cinema'>Union Square 14</span>
             </Item.Meta>
@@ -19,10 +19,10 @@ const Properties = () => {
           </Item.Content>
         </Item>
         <Item>
-          <Item.Image src={FirstImg} size="large" />
+          <Item.Image src={FirstImg} size="big" />
     
           <Item.Content>
-            <Item.Header as='a'>12 Years a Slave</Item.Header>
+            <Item.Header as='a'>blahblah</Item.Header>
             <Item.Meta>
               <span className='cinema'>Union Square 14</span>
             </Item.Meta>
@@ -34,10 +34,10 @@ const Properties = () => {
           </Item.Content>
         </Item>
         <Item>
-          <Item.Image src={FirstImg} size="medium"/>
+          <Item.Image src={FirstImg} size="big"/>
     
           <Item.Content>
-            <Item.Header as='a'>12 Years a Slave</Item.Header>
+            <Item.Header as='a'>blahblah</Item.Header>
             <Item.Meta>
               <span className='cinema'>Union Square 14</span>
             </Item.Meta>

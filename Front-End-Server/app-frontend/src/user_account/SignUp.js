@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Form, Button, Segment, Icon, Message } from "semantic-ui-react";
 
 
@@ -25,7 +26,7 @@ const SignUp = () => {
             <br />
             <Message attached='bottom' warning>
                 <Icon name='help' />
-                Already signed up?&nbsp;<a href='/login'>Login here</a>&nbsp;instead.
+                Already signed up?&nbsp;<Link to='/login'>Login here</Link>&nbsp;instead.
             </Message>
         </div>
      );

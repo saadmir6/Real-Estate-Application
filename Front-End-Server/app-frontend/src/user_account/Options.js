@@ -1,5 +1,6 @@
-import { Dropdown, Button} from "semantic-ui-react";
+import { Dropdown, Button, Icon} from "semantic-ui-react";
 import { languageOptions } from "../values";
+import { Link } from "react-router-dom";
 
 
 const Options = () => {
@@ -19,14 +20,19 @@ const Options = () => {
         
         <span className="account">
         <div className="ui large buttons">
-            <Button  href="/login" color="green" icon="user">Log In</Button>
+            <Link to="/login">
+                <Button color="green"><Icon name="user"></Icon> Log In</Button>
+            </Link>
         <div className="or">
-            </div>          
-                <Button  href="/signup" color="blue" icon="signup">Sign Up</Button>
+            </div>
+            <Link to="/signup">
+                <Button color="blue" ><Icon name="signup"></Icon>Sign Up</Button>
+            </Link>          
+        
             </div>
         </span>
         
-        </div>);
-        }
+        </div>
+        )};
  
 export default Options;
