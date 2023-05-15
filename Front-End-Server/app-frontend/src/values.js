@@ -1,3 +1,6 @@
+import { Placeholder } from "semantic-ui-react";
+
+
 export const terms = 
 <label style={{lineHeight:"1.8rem"}} >
 
@@ -18,8 +21,14 @@ export const options = [
     { key: 7, text: 'Condos', value: 7 },
     { key: 8, text: 'Apartment', value: 8 },
     { key: 9, text: 'Other', value: 9 },
+   
 ]
 
+export const type_options =[
+    { key: 1, text: 'Sell', value: 1 },
+    { key: 2, text: 'Rent', value: 2 },
+
+]
 
 export const languageOptions = [
     { key: 'Arabic', text: 'Arabic', value: 'Arabic' },
@@ -47,3 +56,7 @@ export const languageOptions = [
     {key: 'Urdu', text:'Urdu', value:'Urdu' },
     { key: 'Vietnamese', text: 'Vietnamese', value: 'Vietnamese' },
   ]
+
+  export const  Placeholders = <Placeholder>
+                                    <Placeholder.Image rectangular/>
+                                </Placeholder>

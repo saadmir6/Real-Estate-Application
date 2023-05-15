@@ -11,18 +11,30 @@ import {
     Divider, 
     TextArea,} from "semantic-ui-react";
 
-import {options, terms} from "../values";
-import { useContext, useState } from "react";
+import {options,type_options, terms} from "../values";
+import { useState } from "react";
 
 
 const Sell = ( {image, onImagechange} ) => {
 
     const [value, setValue] = useState('')
+    const [cover_image, setCover_image] = useState(null)
+
     const handleValue = e => {
         const result = e.target.value.replace(/\D/g, '')
         setValue(result)
         console.log(value)
     }
+
+
+
+    const handleImage = (e) =>{
+        e.preventDefault();
+        console.log(e.target.files);
+        setCover_image(e.target.files[0]);
+    };
+
+    
 
     
     return ( 
@@ -42,14 +54,38 @@ const Sell = ( {image, onImagechange} ) => {
                     <br />
                     <Divider />
                     <Header size="large">
-                        Set your price
+                        Select your method
+                    </Header >
+                    <label className="drop">
+                    <Dropdown  fluid clearable options={type_options} selection placeholder="Select house type"  />
+                    </label>
+                    <Header size="large">
+                        Set your price based on your method
                     </Header >
                     <FormInput icon="euro" type="number" className="input"></FormInput>
+                    <br />
+
+                    <Header  size="large">
+                        <Icon name="images" size="large" />
+                        Add the cover image of your propery
+                    </Header>
+
+
+                    <label className="image_upload">
+                    <FormInput type="file" accept="image/png, image/jpeg" onChange={handleImage} placeholder="Upload your image here..." /> 
+                    {/* {cover_image.map((url)=>{
+                            return (
+                                <img src={url} alt="" className="preview_image" />
+                            )})}       */}
+                    </label>  
+
+
+                    <br />
                     <Divider />
                     <br />
                     <Header  size="large">
                         <Icon name="images" size="large" />
-                        Add your properties imagies
+                        Add your properties images
                     </Header>
                     <br />
 
@@ -69,24 +105,24 @@ const Sell = ( {image, onImagechange} ) => {
 
                     <label >House type</label>
                     <Form.Group  >
-                        <Menu style={{width:"50%"}}>                          
-                            <Dropdown fluid clearable options={options} selection placeholder="Select house type" width={100}/>
+                        <Menu className="drop">                          
+                            <Dropdown fluid clearable options={options} selection placeholder="Select house type" />
                         </Menu> 
                     </Form.Group>
                     <br />
                     <FormGroup widths={3}>                        
-                        <Form.Input type="number" min="0" placeholder="Enter number of beds" label="Beds" icon="bed" />
+                        <Form.Input type="number" min="0" placeholder="Enter number of bedrooms" label="Bedrooms" icon="bed" />
                         <Form.Input type="number" min="0" placeholder="Enter number of baths" label="Baths"/>
-                        <Form.Input type="number" min="0" placeholder="" label="Total rooms"/>
+                        
                     </FormGroup>
                     <br />
-                    <FormGroup widths={3}>                        
-                        <FormInput type="number" min="0"  label="Basement sq. ft."  />
-                        <FormInput type="number" min="0"  label="Garage sq. ft."/>
+                    <FormGroup widths={2}>                        
+                        <FormInput type="number" min="0"  label="Basement m²"  />
+                        <FormInput type="number" min="0"  label="Garage m²"/>
                     </FormGroup>
                     <FormGroup widths={2}>
-                        <Form.Input type="number" min="0" label="Total House sq. ft."  />
-                        <Form.Input type="number" min="0" label="Lot size" placeholder="Lot size is the lawn area plus total sq. ft."  />
+                        <Form.Input type="number" min="0" label="Total House m²"  />
+                        <Form.Input type="number" min="0" label="Total Apartment m²"  />
                     </FormGroup>
                     <FormInput type="month" label="Year built" width={5} >
                     </FormInput>

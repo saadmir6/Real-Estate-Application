@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {Card, Placeholder} from "semantic-ui-react";
+import {Card} from "semantic-ui-react";
 import { URL, AGENT_URL } from "../Backend_URLS";
+import { Placeholders } from "../values";
 
-const Placeholders = <Placeholder>
-                            <Placeholder.Image rectangular/>
-                    </Placeholder>
 
 const Agents = () => {
 
@@ -14,7 +12,6 @@ const Agents = () => {
     useEffect(()=>{
         axios.get(AGENT_URL)
         .then((response) =>setApi(response.data))
-        .then((response) =>(console.log(response)))
     }, [])
 
     return ( 

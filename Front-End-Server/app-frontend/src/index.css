@@ -166,9 +166,10 @@ hr{
 }
 
 .input{
-  width: 30%;
+  width: 40%;
 }
- 
+
+/* SELL FORM IMAGES */
 input[type="file"]{
   display: none;
 }
@@ -198,9 +199,29 @@ input[type="file"]{
   content: 'Add your images here';
 }
 
+/* SELL FORM DROPDOWN */
 
+.drop {
+  display: flex;
+  width: 30%;
+}
 
+/* BUY */
 
+.buyitems{
+  display: flex;
+  text-align: center;
+  margin: auto;
+  width: 90%;
+}
+
+.description{
+  font-weight: bolder;
+}
+
+.extra{
+  font-weight: bolder;
+}
 /* Footer */
 .footer{
   background-color: black;
@@ -211,7 +232,9 @@ input[type="file"]{
   padding: 30px;
   position:relative;
   width: 100%; 
+  margin-top: 20px;
 }
+
 
 /* 
 .search_box{
