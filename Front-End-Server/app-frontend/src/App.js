@@ -9,17 +9,20 @@ import Buy from "./property_options/Buy";
 import SignUp from "./user_account/SignUp";
 import LogIn from "./user_account/LogIn";
 import BuyDetails from "./property_options/BuyDetails";
-import { Route, Routes } from "react-router-dom";
-import "./index.css"
-import { useState, useEffect } from "react";
+import RentDetails from "./property_options/RentDetails";
+import ContactForm from "./main_page/ContactForm";
 import axios from "axios";
-import { BUY_URL, URL } from "./Backend_URLS";
+import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { BUY_URL, RENT_URL ,URL } from "./Backend_URLS";
+import "./index.css"
 
 
 function App() {
   
   const [image, setImage] = useState([])
   const [ buydata, setBuydata] = useState([])
+  const [ rentdata, setRentdata] = useState([])
   const [ id, setId ] = useState('')
 
   const onImagechange = (e) =>{
@@ -56,6 +59,18 @@ function App() {
       })
   }, []);
 
+  useEffect(()=>{
+      let url = [RENT_URL]
+      const promise = url.map((url)=>axios.get(url))
+      Promise.all(promise).then(responce=>{
+          let data = [];
+          responce.forEach(responce => {
+              data = data.concat(responce.data);
+          });
+          setRentdata(data);
+      })
+  }, []);
+
 
 
   return (
@@ -68,9 +83,11 @@ function App() {
           <Route path="/login" element={<LogIn/>}/>
           <Route path="/agents" element={<Agents />}/>
           <Route path="/sell" element={<Sell image={image} onImagechange={onImagechange}/>}/>
-          <Route path="/rent" element={<Rent />}/>
           <Route path="/buy" element={<Buy data={buydata} handleId={handleId}/>}/>
           <Route path="/buydetails" element={<BuyDetails data={buydata} ID={id}/>}/>
+          <Route path="/rent" element={<Rent data={rentdata} handleId={handleId}/>}/>
+          <Route path="/rentdetails" element={<RentDetails data={rentdata} ID={id}/>}/>
+          <Route path="/contact" element={<ContactForm />}/>
         </Routes>
         < Footer />
     </div>

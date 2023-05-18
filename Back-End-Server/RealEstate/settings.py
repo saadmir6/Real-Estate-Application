@@ -1,4 +1,5 @@
 
+from datetime import timedelta
 from pathlib import Path
 from decouple import config 
 import os
@@ -30,11 +31,23 @@ INSTALLED_APPS = [
     'corsheaders',
     "phonenumber_field",
     'rest_framework',
+    'rest_framework_simplejwt',
     'BackEnd'
 ]
 
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
 PHONENUMBER_DEFAULT_REGION =  "GR"
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

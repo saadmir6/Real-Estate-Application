@@ -57,6 +57,11 @@ export const languageOptions = [
     { key: 'Vietnamese', text: 'Vietnamese', value: 'Vietnamese' },
   ]
 
-  export const  Placeholders = <Placeholder>
-                                    <Placeholder.Image rectangular/>
-                                </Placeholder>
+export const  Placeholders = <Placeholder>
+                                <Placeholder.Image rectangular/>
+                            </Placeholder>
+
+
+export const MessageBuy = "I'm interested in buying this apartment/property "
+
+export const MessageRent = "I'm interested in renting this apartment/property "

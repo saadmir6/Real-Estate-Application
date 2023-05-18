@@ -8,7 +8,7 @@ const ContactOpts = () => {
     return ( 
         <div className="Segment_block">
            
-            <Segment   textAlign="center" >
+                <Segment   textAlign="center" >
                     <Grid >
                     <Grid.Column>
                         <Item.Image src={agent} size="huge"/>
@@ -19,15 +19,17 @@ const ContactOpts = () => {
                         </Link>
                     </Grid.Column>
                     </Grid>
-                     </Segment>
+                </Segment>
 
-            <Segment compact  textAlign="center"  >
+                <Segment compact  textAlign="center"  >
                     <Grid.Column >
                         <Item.Image src={contact} size="large"/>
                         <Item.Description className="Contact_desc" >
                             If you want to ask a question or want to know more about Real Estate Athens feel free to contact us!
                         </Item.Description>
+                        <Link to="/contact">
                         <Button content='CONTACT US' icon='mail' size='large' color="red" inverted  />
+                        </Link>
                     </Grid.Column>
                     </Segment>
                     

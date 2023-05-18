@@ -1,5 +1,5 @@
-from ..models import Buy, BuyImages
-from ..serializer import BuySerializer, ImageSerializer
+from ..models import Buy
+from ..serializer import BuySerializer
 from rest_framework import status
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.views import APIView

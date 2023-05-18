@@ -124,6 +124,13 @@ hr{
   
 }
 
+.contactform{
+  display: block;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
 .Segment_block{
   display:block;
   margin: 100px auto ;
@@ -140,7 +147,7 @@ hr{
 
 .login{
   display: block;
-  width: 50%;
+  width: 60%;
   margin: 50px auto;
 }
 
@@ -153,7 +160,6 @@ hr{
   align-items: center;
   justify-content: center;
   margin-top: 50px;
-
 }
 
 
@@ -222,6 +228,68 @@ input[type="file"]{
 .extra{
   font-weight: bolder;
 }
+
+.react-slideshow-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  
+}
+
+.details{
+  text-align:center ;
+}
+
+.street{
+  font: inherit;
+  font-size: x-large;
+  display: flex;
+  padding-left: 200px ;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  margin:auto;
+}
+
+.price{
+  font: inherit;
+  font-weight: bold;
+  font-size: x-large; 
+  display: flex;
+  float: right ;
+  margin: auto;
+}
+
+table{
+  font: inherit;
+  font-size: x-large;
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 3rem;
+}
+
+
+.desc{
+  display: flex;
+  font-size: larger;
+  text-align: center;
+  margin: 10px 15rem; 
+}
+
+.message{
+  display: block;
+  width: 50%;
+  margin: 50px auto;
+}
+
+.h3{
+  font: inherit;
+  font-size: x-large;
+  font-weight: bold;
+  margin: 2rem;
+}
+
 /* Footer */
 .footer{
   background-color: black;

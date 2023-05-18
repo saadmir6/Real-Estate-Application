@@ -4,7 +4,7 @@ import { Placeholders } from "../values";
 import { Link } from "react-router-dom";
 
 
-const Buy = ({ data, handleId } ) => {
+const Buy = ( { data, handleId } ) => {
 
     return ( 
         <div className="buyitems">

@@ -63,4 +63,42 @@ class Buy(models.Model):
 
 class BuyImages(models.Model):
     buy = models.ForeignKey(Buy, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to=unique_images_id) 
+
+
+
+class Rent(models.Model):
+    id = models.AutoField(primary_key=True)
+    street_name = models.CharField(max_length=50, default='' )
+    house_number = models.CharField(max_length=100, default='')
+    postal_code = models.PositiveIntegerField(validators=[my_postal_code_validator], default=0)
+    locality = models.TextField(max_length=20, default='')
+    method = models.CharField(max_length=10, default='')
+    price = models.PositiveBigIntegerField(default=0)
+    cover_photo = models.ImageField(upload_to=unique_cover_image_id, default='')
+    house_type = models.TextField(max_length=20, default='', blank=True, null=True)
+    bedrooms = models.PositiveIntegerField(validators=[MaxValueValidator(50)], default=0)
+    baths = models.PositiveIntegerField(validators=[MaxValueValidator(50)], default=0)
+    garage_meter_square = models.PositiveBigIntegerField(default=0, blank=True, null=True)
+    total_house_meter_square = models.PositiveBigIntegerField(default=0, blank=True, null=True)
+    total_apartment_meter_square = models.PositiveBigIntegerField(default=0, blank=True, null=True)
+    year_biult = models.DateField(blank=True, null=True)
+    floor_no = models.PositiveIntegerField(default=0, blank=True, null=True)
+    desc = models.TextField(default='')
+    contact_phone = PhoneNumberField(default='')
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+
+class RentImages(models.Model):
+    rent = models.ForeignKey(Rent, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to=unique_images_id)  
+
+
+class SignUp(models.Model):
+    first_name = models.CharField(max_length=50, default='')
+    last_name = models.CharField(max_length=50, default='', null=True, blank=True)
+    password = models.CharField(max_length=100, default='')
+    phone_number = PhoneNumberField(default = '', null = True, blank = True)
+    email = models.EmailField(max_length=100, default='')

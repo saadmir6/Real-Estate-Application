@@ -1,19 +1,40 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Form, Button, Segment, Icon, Message } from "semantic-ui-react";
-
+import { LOGIN_URL } from "../Backend_URLS";
+import axios from "axios";
 const LogIn = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async () => {
+    try {
+    const response = await axios.post(LOGIN_URL, { email, password });
+    const { access, refresh } = response.data;
+
+    // Save the tokens in local storage or cookies
+    localStorage.setItem('access_token', access);
+    localStorage.setItem('refresh_token', refresh);
+
+    // Redirect to a protected route or perform any other action
+    } catch (error) {
+    console.error(error);
+    }
+    };
+
     return ( 
         <div className="login">
-            <Form >
+            <Form onSubmit={handleLogin}>
                 <Segment >
                     <Form.Field width={15}>
                         <label>Email</label>
-                        <input placeholder='Email' type={"email"} />
+                        <input placeholder='Email' type={"email"} value={email} onChange={(e) => setEmail(e.target.value)} />
                     </Form.Field>
                         <span style={{margin:'130px'}}></span>
                     <Form.Field width={15}>
                         <label>Password</label>
-                        <input placeholder='Password' type={"password"}/>
+                        <input placeholder='Password' type={"password"} value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </Form.Field>
                     <span className="login_button">
                         <Button type='submit' color="green" size="large" width={10}>Log In</Button>  
@@ -21,11 +42,10 @@ const LogIn = () => {
                 </Segment>
             </Form>
             <br />
-            <Message attached='bottom' warning>
+            <Message attached='bottom' warning floating >
                 <Icon name='help' />
-                If you dont have an account.&nbsp;<Link to='/signup'>Sign Up here.</Link>&nbsp;
-            </Message>
-           
+                If you don't have an account &nbsp;<Link to='/signup'>Sign up here</Link>&nbsp;instead.
+            </Message>           
         </div>
      );
 }
