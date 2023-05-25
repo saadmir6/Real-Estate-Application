@@ -13,11 +13,11 @@ const LogIn = () => {
     const response = await axios.post(LOGIN_URL, { email, password });
     const { access, refresh } = response.data;
 
-    // Save the tokens in local storage or cookies
+    
     localStorage.setItem('access_token', access);
     localStorage.setItem('refresh_token', refresh);
 
-    // Redirect to a protected route or perform any other action
+    
     } catch (error) {
     console.error(error);
     }

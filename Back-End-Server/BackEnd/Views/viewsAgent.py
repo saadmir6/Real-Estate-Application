@@ -4,19 +4,15 @@ from rest_framework import status
 from ..models import Agents
 from ..serializer import AgentsSerializer
 
+
 class AgentsApi(APIView):
-
     def get(self, request, *args, **kwargs):
-
-
         agent = Agents.objects.all()
         serialize = AgentsSerializer(agent, many=True)
         return JsonResponse(serialize.data, safe=False)
     
     def post(self, request, *args, **kwargs):
-
         api_serializer = AgentsSerializer(data = request.data)
-
         if api_serializer.is_valid():
             api_serializer.save()
             return JsonResponse(api_serializer.data, status = status.HTTP_201_CREATED)

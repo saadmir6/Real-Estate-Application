@@ -43,7 +43,7 @@
   text-align: center;
   font-size: large;
   padding:  1em;
-  max-width: 85.8rem;
+  max-width: 86.8rem;
   width: 100%;
   position: relative;
   background-color: black;
@@ -302,14 +302,4 @@ table{
   width: 100%; 
   margin-top: 20px;
 }
-
-
-/* 
-.search_box{
-  margin: 10px ;
-  width: 80%;
-  height: 40px;
-  border-radius: 20px;
-  white-space: nowrap;
-} */
 

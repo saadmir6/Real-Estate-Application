@@ -6,7 +6,6 @@ from rest_framework.views import APIView
 from rest_framework.generics import CreateAPIView
 from django.http import JsonResponse
 
-
 class CreateRentViews(CreateAPIView):
     parser_classes = [MultiPartParser, FormParser]
     serializer_class = RentSerializer

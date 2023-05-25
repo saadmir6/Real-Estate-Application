@@ -14,13 +14,14 @@ import ContactForm from "./main_page/ContactForm";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { BUY_URL, RENT_URL ,URL } from "./Backend_URLS";
+import { BUY_URL, RENT_URL ,URL, IMAGES_URL } from "./Backend_URLS";
 import "./index.css"
 
 
 function App() {
   
   const [image, setImage] = useState([])
+  const [multiple_images, setMultiple_images] = useState([])
   const [ buydata, setBuydata] = useState([])
   const [ rentdata, setRentdata] = useState([])
   const [ id, setId ] = useState('')
@@ -31,11 +32,11 @@ function App() {
       const targetFilesObject = [...targetFiles]
       targetFilesObject.map((file)=>{
           
-          return selectedFiles.push(URL.createObjectURL(file))
+          return selectedFiles.push(global.URL.createObjectURL(file))
       })
       setImage(selectedFiles)
-}
-
+      console.log(image)
+};
 
   const handleId = ( event, data ) =>{
     
@@ -71,6 +72,18 @@ function App() {
       })
   }, []);
 
+  useEffect(()=>{
+      let url = [IMAGES_URL]
+      const promise = url.map((url)=>axios.get(url))
+      Promise.all(promise).then(responce=>{
+          let data = [];
+          responce.forEach(responce => {
+              data = data.concat(responce.data);
+          });
+          setMultiple_images(data);
+      })
+  }, []);
+
 
 
   return (
@@ -78,7 +91,7 @@ function App() {
         <Options />
         <Header/>
         <Routes>
-          <Route  path="/" element={<Home />}/>
+          <Route  path="/" element={<Home images={multiple_images} />}/>
           <Route path="/signup" element={<SignUp />}/>
           <Route path="/login" element={<LogIn/>}/>
           <Route path="/agents" element={<Agents />}/>

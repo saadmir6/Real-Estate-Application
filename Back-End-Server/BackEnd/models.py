@@ -21,6 +21,11 @@ def unique_cover_image_id(instance, filename):
     new_filename = str(uuid.uuid1())
     return f"Cover_Images/{new_filename}{fpath.suffix}"
 
+def front_page(instance, filename):
+    fpath = pathlib.Path(filename)
+    new_filename = str(uuid.uuid1())
+    return f"Front_Page_Images/{new_filename}{fpath.suffix}"
+
 def my_postal_code_validator(value):
     if len(str(value)) < 1 and len(str(value)) > 7:
         raise ValidationError(
@@ -102,3 +107,7 @@ class SignUp(models.Model):
     password = models.CharField(max_length=100, default='')
     phone_number = PhoneNumberField(default = '', null = True, blank = True)
     email = models.EmailField(max_length=100, default='')
+
+
+class Images(models.Model):
+    images = models.ImageField(upload_to=front_page)

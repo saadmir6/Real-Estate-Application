@@ -1,5 +1,5 @@
-from django.urls import path
-from .Views import viewsAgent, viewsBuy, viewsRent, viewsSignUp, viewsLogin
+from django.urls import path, include
+from .Views import viewsAgent, viewsBuy, viewsRent, viewsSignUp, viewsLogin, viewsImages
 
 urlpatterns = [
     path('agents', viewsAgent.AgentsApi.as_view(), name="agents"),
@@ -9,6 +9,6 @@ urlpatterns = [
     path('renting',viewsRent.CreateRentViews.as_view(), name="renting"),
     path('renting/<int:id>/', viewsRent.RentPut.as_view(), name="renting"),
     path('signup', viewsSignUp.SignUpView.as_view(), name="signup"),
-    path('login', viewsLogin.login(), name="login"),
+    path('images', viewsImages.FrontImages.as_view(), name="images"),
     
 ]

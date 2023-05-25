@@ -25,7 +25,7 @@ const Navbar = () => {
                 </li>
             </ul>
             
-            <img src={FirstImg} alt="second"  className='FirstImg'/>
+            <img src={FirstImg}  alt="second"  className='FirstImg'/>
         </div>
                    
         

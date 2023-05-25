@@ -46,6 +46,8 @@ const RentDetails = ( { data, ID } ) => {
                         <th>AREA</th>
                         <span></span>
                         <th>YEAR BUILT</th>
+                        <span></span>
+                        <th>FLOOR NO.</th>
                     </tr>
                     <tr>
                         <td>
@@ -62,6 +64,10 @@ const RentDetails = ( { data, ID } ) => {
                         <span></span>
                         <td>
                             {data.year_biult}
+                        </td>
+                        <span></span>
+                        <td>
+                            {data.floor_no}
                         </td>
                     </tr>
                 </table>

@@ -7,8 +7,6 @@ from rest_framework.generics import CreateAPIView
 from django.http import JsonResponse
 
 
-
-        
 class CreateBuyViews(CreateAPIView):
     parser_classes = [MultiPartParser, FormParser]
     serializer_class = BuySerializer

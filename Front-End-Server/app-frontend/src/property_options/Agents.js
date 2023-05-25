@@ -18,7 +18,15 @@ const Agents = () => {
         <Card.Group  itemsPerRow={3} key={api.id}>
             {api.map(api=>
 
-                <Card  color="blue" image={URL+ api.image} placeholder={Placeholders} header={api.name} meta={api.age}  extra={api.phone_number} description={api.email}  />
+                <Card  
+                
+                color="blue" 
+                image={URL+ api.image} 
+                placeholder={Placeholders} 
+                header={api.name} 
+                meta={api.age}  
+                extra={api.phone_number} 
+                description={api.email}  />
                 
                 )}
         </Card.Group> 

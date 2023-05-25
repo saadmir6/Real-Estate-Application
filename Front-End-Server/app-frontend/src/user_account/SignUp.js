@@ -33,7 +33,6 @@ const SignUp = () => {
     };
     const handlePassword = (e) =>{
         e.preventDefault();
-        console.log(e.target.files);
         setPassword(e.target.value);
     };
 

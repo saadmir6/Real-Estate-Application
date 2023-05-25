@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Agents, Buy, BuyImages, Rent, RentImages, SignUp
+from .models import Agents, Buy, BuyImages, Rent, RentImages, SignUp, Images
 
 class AgentsSerializer(serializers.ModelSerializer):
 
@@ -56,4 +56,9 @@ class RentSerializer(serializers.ModelSerializer):
 class SignUpSerializer(serializers.ModelSerializer):
     class Meta:
         model = SignUp
+        fields = "__all__"
+
+class ImagesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Images
         fields = "__all__"

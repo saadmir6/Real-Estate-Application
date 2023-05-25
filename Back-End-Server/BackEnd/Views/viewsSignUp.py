@@ -1,11 +1,10 @@
-from ..models import SignUp
 from ..serializer import SignUpSerializer
 from rest_framework import status
 from rest_framework.views import APIView
 from django.http import JsonResponse
 
+
 class SignUpView(APIView):
-    
     def post(self, request, *args, **kwargs):
         serializer = SignUpSerializer(data=request.data)
         if serializer.is_valid():
