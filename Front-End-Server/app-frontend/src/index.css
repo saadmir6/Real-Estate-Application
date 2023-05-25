@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Tilt Neon', cursive;
+  scroll-behavior: smooth;
+  
+}
+
+
+
+/* MAIN HEADING */
+.H1{
+  text-align: center;
+  font-size:xx-large;
+  font-weight: bolder;
+  padding: 50px ;
+}
+
+.li{
+  list-style-type: none;
+}
+
+/* THE NAVBAR */
+.Nav{
+  display: block;
+  object-fit: contain;
+}
+
+
+.links{
+  color:white
+} 
+
+.list{
+  display: block;
+  color: aliceblue;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: large;
+  padding:  1em;
+  max-width: 86.8rem;
+  width: 100%;
+  position: relative;
+  background-color: black;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.buy, .sell, .agents, .rent {
+  margin: 10px 25px;
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  align-items: center;
+  list-style-type: none;
+  font-weight: bold;
+}
+.buy:hover, .sell:hover, .agents:hover, .rent:hover{
+
+  color: hsl(156, 100%, 97%);
+  
+}
+.buy::after, .sell::after, .agents::after, .rent::after{
+  content: "";
+  position: absolute;
+  left:0;
+  top: 100%;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width .3s ease-in-out;
+  
+} 
+
+.buy:hover:after, .rent:hover:after,.agents:hover:after, .sell:hover:after {
+  width: 100%;
+}
+
+
+
+/* IMAGE UNDER NAVBAR */
+.FirstImg{
+  width: 95%;
+  height: 430px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0px 0px 10px 10px;
+  
+}
+
+
+/* UPPER OPTIONS */
+.upper_nav{
+  margin: 10px 25px 10px 25px;
+}
+.account{
+  float: right;
+}
+
+
+/* PROPERTIES */
+hr{
+  margin: 60px 30px 10px 30px;
+}
+
+.propertieslist{
+  display: block;
+  margin: auto 50px;
+}
+
+
+/* Segments  */
+.Contact_desc{
+  font-weight: bold;
+  padding: 20px;
+  font-size: large;
+  margin: 50px;
+  display: inline-flex;
+  
+}
+
+.contactform{
+  display: block;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+.Segment_block{
+  display:block;
+  margin: 100px auto ;
+  width: 50%;  
+}
+
+/* Sign up and Log in */
+
+.signup{
+  display: block;
+  margin: 50px auto;
+  width: 80%;
+}
+
+.login{
+  display: block;
+  width: 60%;
+  margin: 50px auto;
+}
+
+.login_field{
+  padding: 50px;
+}
+
+.login_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+
+/* SELL FORM */
+
+.sell_form{
+  display: block;
+  margin: 50px auto;
+  width: 90%;
+}
+
+.input{
+  width: 40%;
+}
+
+/* SELL FORM IMAGES */
+input[type="file"]{
+  display: none;
+}
+
+.image_upload{
+  border: 3px dashed #ccc;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  cursor: pointer;
+  width: 60%;
+  padding: 100px;
+  margin: auto;
+}
+
+.preview_image{
+  width: 30%;             
+}
+
+.image_upload::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.image_upload::before {
+  content: 'Add your images here';
+}
+
+/* SELL FORM DROPDOWN */
+
+.drop {
+  display: flex;
+  width: 30%;
+}
+
+/* BUY */
+
+.buyitems{
+  display: flex;
+  text-align: center;
+  margin: auto;
+  width: 90%;
+}
+
+.description{
+  font-weight: bolder;
+}
+
+.extra{
+  font-weight: bolder;
+}
+
+.react-slideshow-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  
+}
+
+.details{
+  text-align:center ;
+}
+
+.street{
+  font: inherit;
+  font-size: x-large;
+  display: flex;
+  padding-left: 200px ;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  margin:auto;
+}
+
+.price{
+  font: inherit;
+  font-weight: bold;
+  font-size: x-large; 
+  display: flex;
+  float: right ;
+  margin: auto;
+}
+
+table{
+  font: inherit;
+  font-size: x-large;
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 3rem;
+}
+
+
+.desc{
+  display: flex;
+  font-size: larger;
+  text-align: center;
+  margin: 10px 15rem; 
+}
+
+.message{
+  display: block;
+  width: 50%;
+  margin: 50px auto;
+}
+
+.h3{
+  font: inherit;
+  font-size: x-large;
+  font-weight: bold;
+  margin: 2rem;
+}
+
+/* Footer */
+.footer{
+  background-color: black;
+  bottom: 0;
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 30px;
+  position:relative;
+  width: 100%; 
+  margin-top: 20px;
+}
+
