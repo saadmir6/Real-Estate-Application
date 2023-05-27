@@ -9,6 +9,7 @@ urlpatterns = [
     path('renting',viewsRent.CreateRentViews.as_view(), name="renting"),
     path('renting/<int:id>/', viewsRent.RentPut.as_view(), name="renting"),
     path('signup', viewsSignUp.SignUpView.as_view(), name="signup"),
+    path('login', viewsLogin.LoginView.as_view(), name="login"),
     path('images', viewsImages.FrontImages.as_view(), name="images"),
     
 ]

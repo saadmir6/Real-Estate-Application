@@ -1,28 +1,9 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Form, Button, Segment, Icon, Message } from "semantic-ui-react";
-import { LOGIN_URL } from "../Backend_URLS";
-import axios from "axios";
-const LogIn = () => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const handleLogin = async () => {
-    try {
-    const response = await axios.post(LOGIN_URL, { email, password });
-    const { access, refresh } = response.data;
+const LogIn = ({ setEmail, setPassword, email, password, handleLogin }) => {
 
     
-    localStorage.setItem('access_token', access);
-    localStorage.setItem('refresh_token', refresh);
-
-    
-    } catch (error) {
-    console.error(error);
-    }
-    };
-
     return ( 
         <div className="login">
             <Form onSubmit={handleLogin}>

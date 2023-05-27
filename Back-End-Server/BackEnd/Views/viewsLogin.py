@@ -1,24 +1,21 @@
-# from django.contrib.auth.models import User
-# from django.http import JsonResponse
-# from rest_framework import status
-# from rest_framework_simplejwt.tokens import RefreshToken
-# from rest_framework.decorators import api_view
+from django.contrib.auth import authenticate, login
+from django.http import JsonResponse
+from rest_framework import status
+from rest_framework.views import APIView
 
-# @api_view(['POST'])
-# def login(request):
-#     email = request.data.get('email')
-#     password = request.data.get('password')
+class LoginView(APIView):    
+    def api_login(request):
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        user = authenticate(request, email=email, password=password)
+        if user is None:
+            return JsonResponse("fail", status = status.HTTP_400_BAD_REQUEST )
+        else:
+            login(request, user)
+            return JsonResponse("success", status = status.HTTP_200_OK)
 
-#     try:
-#         user = User.objects.get(email=email)
-#     except User.DoesNotExist:
-#         return JsonResponse({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-
-#     if not user.check_password(password):
-#         return JsonResponse({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-
-#     refresh = RefreshToken.for_user(user)
-#     return JsonResponse({
-#         'access': str(refresh.access_token),
-#         'refresh': str(refresh),
-#     })
+    def api_authenticate(request):
+        if request.user.is_authenticated:
+            return JsonResponse("granted", status=status.HTTP_202_ACCEPTED)
+        else:
+            return JsonResponse("not allowed", status = status.HTTP_401_UNAUTHORIZED)

@@ -14,17 +14,19 @@ import ContactForm from "./main_page/ContactForm";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { BUY_URL, RENT_URL ,URL, IMAGES_URL } from "./Backend_URLS";
+import { BUY_URL, RENT_URL, IMAGES_URL, LOGIN_URL } from "./Backend_URLS";
 import "./index.css"
 
 
 function App() {
-  
+
   const [image, setImage] = useState([])
   const [multiple_images, setMultiple_images] = useState([])
   const [ buydata, setBuydata] = useState([])
   const [ rentdata, setRentdata] = useState([])
   const [ id, setId ] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const onImagechange = (e) =>{
       const selectedFiles = [];
@@ -46,6 +48,29 @@ function App() {
     setId(Id)
     
     };
+
+  const handleLogin =  () => {
+    try {
+        axios.post(LOGIN_URL, { email, password });
+
+    } catch (error) {
+    console.error(error);
+    }};
+
+
+  const handleLoginData = async () => {
+    const isLoggedIn = false;
+    try {
+        const responce = await axios.get(LOGIN_URL)
+        if (responce.status === 200 || responce.status === 202) {
+            isLoggedIn = true;
+        }
+        else if (responce.status === 400 || responce.status === 401){
+            isLoggedIn = false;
+        }
+    } catch (error){
+        console.log(error);
+    }};
 
 
   useEffect(()=>{
@@ -93,9 +118,9 @@ function App() {
         <Routes>
           <Route  path="/" element={<Home images={multiple_images} />}/>
           <Route path="/signup" element={<SignUp />}/>
-          <Route path="/login" element={<LogIn/>}/>
+          <Route path="/login" element={<LogIn email={email} password={password} handleLogin={handleLogin} setEmail={setEmail} setPassword={setPassword} />}/>
           <Route path="/agents" element={<Agents />}/>
-          <Route path="/sell" element={<Sell image={image} onImagechange={onImagechange}/>}/>
+          <Route path="/sell" element={<Sell image={image} onImagechange={onImagechange} handleLoginData={handleLoginData}/>}/>
           <Route path="/buy" element={<Buy data={buydata} handleId={handleId}/>}/>
           <Route path="/buydetails" element={<BuyDetails data={buydata} ID={id}/>}/>
           <Route path="/rent" element={<Rent data={rentdata} handleId={handleId}/>}/>

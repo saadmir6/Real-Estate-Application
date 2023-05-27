@@ -15,7 +15,9 @@ import {options,type_options, terms} from "../values";
 import { BUY_URL } from "../Backend_URLS";
 import { useState } from "react";
 
-const Sell = ( {image, onImagechange} ) => {
+const Sell = ( {image, onImagechange, handleLoginData} ) => {
+
+    handleLoginData();
 
     const [street_name, setStreet_name] = useState('')
     const [house_number, setHouse_number] = useState('')
@@ -170,6 +172,8 @@ const Sell = ( {image, onImagechange} ) => {
         
     };
 
+    
+
 
 
     return ( 
@@ -277,7 +281,13 @@ const Sell = ( {image, onImagechange} ) => {
                     <Divider />
                     <Form.Checkbox label={terms} /> 
                     <br />
-                    <Button  type="submit" color="blue" disabled onClick={handleSubmit}> Post for sale by the owner </ Button> 
+                    {
+                        handleLoginData.isLoggedIn === true 
+                        ?  
+                        <Button  type="submit" color="blue" onClick={handleSubmit}> Post for sale by the owner </ Button> 
+                        :
+                        <Button  type="submit" color="blue" disabled onClick={handleSubmit}> Post for sale by the owner </ Button> 
+                    }
                 </Segment>
             </Form>
         </div>
