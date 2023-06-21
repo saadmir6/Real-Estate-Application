@@ -14,7 +14,7 @@ import {
 import {options,type_options, terms} from "../values";
 import { BUY_URL } from "../Backend_URLS";
 import { useState } from "react";
-
+import axios from "axios";
 const Sell = ( {image, onImagechange, handleLoginData} ) => {
 
     handleLoginData();
